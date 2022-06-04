@@ -7,21 +7,15 @@ using Xunit;
 
 namespace TestApi;
 
-public class TestBookApiOutput
+public class TestBookApiOutput : BaseTest
 {
-    private const string server = "http://localhost:5064";
-    private readonly HttpClient httpClinet;
-
-    public TestBookApiOutput()
-    {
-        httpClinet = new HttpClient();
-    }
-
     [Theory]
     [InlineData("Book 1", "", 1, 1, 2022)]
+    [InlineData("Book 2", "", 1, 1, 2022)]
+    [InlineData("Book 3", "", 1, 1, 2022)]
     public async Task TestInsert(string title, string description, long authorId, long publisherId, int publishYear)
     {
-        string url = $"{server}/book";
+        string url = $"/book";
         string json = JsonConvert.SerializeObject(new
         {
             Title = title,
