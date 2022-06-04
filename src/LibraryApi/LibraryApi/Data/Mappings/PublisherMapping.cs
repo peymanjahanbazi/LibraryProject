@@ -9,6 +9,9 @@ namespace LibraryApi.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
+            builder.HasData(
+                new Publisher { Id = 1, Name = "Bahar" }
+            );
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)

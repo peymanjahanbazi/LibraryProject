@@ -9,6 +9,9 @@ namespace LibraryApi.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Author> builder)
         {
+            builder.HasData(
+                new Author { Id = 1, Firstname = "Ali Akbar", Lastname = "Dehkhoda" }
+                );
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Firstname)
                 .IsRequired()
